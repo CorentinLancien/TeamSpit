@@ -4,7 +4,7 @@ using TeamSpit.Singleton;
 
 DbContext context = DbContext.GetInstance();
 
-IMessageService srvMessage = new();
+MessageService srvMessage = new();
 MessageObserver messageObserver = new MessageObserver();
 
 ((IObservable)srvMessage).attach(new LogObserver());
