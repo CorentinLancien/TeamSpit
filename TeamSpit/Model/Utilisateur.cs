@@ -16,6 +16,11 @@ namespace TeamSpit.Model
         #endregion
 
         #region Constructors
+
+        public Utilisateur()
+        {
+        }
+
         public Utilisateur(int id, string name)
         {
             this._id = id;

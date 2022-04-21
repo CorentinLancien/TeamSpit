@@ -9,7 +9,7 @@ namespace TeamSpit.Services
 {
     public interface IMessageService
     {
-        public List<Message> findAll();
+        public List<Message> findAll(Conversation conversation);
 
         public Message findById(int id);
     }

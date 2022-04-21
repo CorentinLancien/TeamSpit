@@ -13,7 +13,7 @@ namespace TeamSpit.Services
 
         public Conversation findById(int id);
 
-        public List<Message> GetMessagesFromConversation(int id);
+        public List<Message> GetMessagesFromConversation(Conversation conversation);
 
     }
 }
