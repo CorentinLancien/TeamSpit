@@ -19,7 +19,8 @@ namespace TeamSpit.Services
 
         public List<Message> findAll()
         {
-            //this.alert();
+            Console.WriteLine("FIND ALL MESSAGE");
+            this.alert();
             return new List<Message>
             {
                 new Message(1, "coucou", DateTime.Now, new Utilisateur()),
@@ -35,6 +36,7 @@ namespace TeamSpit.Services
                 new Message(11, "bon bah je vais rester chez moi", DateTime.Now, new Utilisateur()),
                 new Message(12, "bonne journée a tous", DateTime.Now, new Utilisateur()),
                 new Message(13, "au revoir", DateTime.Now, new Utilisateur()),
+
             };
         }
 
