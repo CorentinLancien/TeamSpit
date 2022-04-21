@@ -10,6 +10,8 @@ namespace TeamSpit.Model
     {
         #region Properties
 
+        private string _id;
+
         private string _titre;
 
         private List<Utilisateur> _utilisateurs;
@@ -21,6 +23,7 @@ namespace TeamSpit.Model
         #region Constructors
         public Conversation(string titre, List<Utilisateur> utilisateurs)
         {
+            this._id = titre;
             this._titre = titre;
             this._utilisateurs = utilisateurs;
             this._messages = new List<Message>();
@@ -30,32 +33,38 @@ namespace TeamSpit.Model
 
         #region Getters and Setters
 
-        public string GetTitre()
+
+        public string getId()
+        {
+            return _id;
+        }
+
+        public string getTitre()
         { 
             return _titre; 
         }
 
-        public List<Utilisateur> GetUtilisateurs()
+        public List<Utilisateur> getUtilisateurs()
         {
             return this._utilisateurs;
         }
 
-        public List<Message> GetMessages()
+        public List<Message> getMessages()
         {
             return this._messages;
         }
 
-        public void SetTitre(string titre)
+        public void setTitre(string titre)
         {
             this._titre = titre;
         }
 
-        public void SetUtilisateurs(List<Utilisateur> utilisateurs)
+        public void setUtilisateurs(List<Utilisateur> utilisateurs)
         {
             this._utilisateurs = utilisateurs;
         }
 
-        public void GetMessages(List<Message> messages)
+        public void getMessages(List<Message> messages)
         {
             this._messages = messages;
         }
