@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamSpit.Model;
 
 namespace TeamSpit.Services
 {
-    internal interface Interface1
+    public interface IMessageService
     {
+        public List<Message> findAll();
+
+        public Message findById(int id);
+
     }
 }
