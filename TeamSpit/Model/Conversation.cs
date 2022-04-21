@@ -10,7 +10,7 @@ namespace TeamSpit.Model
     {
         #region Properties
 
-        private string _id;
+        private int _id;
 
         private string _titre;
 
@@ -21,9 +21,9 @@ namespace TeamSpit.Model
         #endregion
 
         #region Constructors
-        public Conversation(string titre, List<Utilisateur> utilisateurs)
+        public Conversation(int id, string titre, List<Utilisateur> utilisateurs)
         {
-            this._id = titre;
+            this._id = id;
             this._titre = titre;
             this._utilisateurs = utilisateurs;
             this._messages = new List<Message>();
@@ -34,7 +34,7 @@ namespace TeamSpit.Model
         #region Getters and Setters
 
 
-        public string getId()
+        public int getId()
         {
             return _id;
         }

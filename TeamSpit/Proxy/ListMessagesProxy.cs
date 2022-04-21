@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamSpit.Model;
+using TeamSpit.Services;
 using TeamSpit.Singleton;
 
 namespace TeamSpit.Proxy
@@ -12,11 +13,13 @@ namespace TeamSpit.Proxy
     {
 		private List<Message> _messages;
 
-		private void load()
+		private IConversationService _conversationService = new ConversationService();
+
+		private void load(int idConversation)
 		{
 			if (this._messages == null)
 			{
-				this._messages = DbContext.GetInstance().GetMessagesFromConversation();
+				this._messages = _conversationService.GetMessagesFromConversation(idConversation);
 			}
 		}
 
