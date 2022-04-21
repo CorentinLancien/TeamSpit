@@ -15,5 +15,13 @@ namespace TeamSpit.Model
         public DateTime dateEnvoie { get; set; }
 
         public Utilisateur? Utilisateur { get; set; }
+
+        public Message(int id, string description, DateTime dateEnvoi, Utilisateur utilisateur)
+        {
+            this.id = id;
+            this.description = description; 
+            this.dateEnvoie = dateEnvoi;
+            this.Utilisateur = utilisateur;
+        }
     }
 }
