@@ -8,8 +8,44 @@ namespace TeamSpit.Model
 {
     public class Utilisateur
     {
-        public int id;
+        #region Properties
+        private int _id;
 
-        public string? name;
+        private string? _name;
+
+        #endregion
+
+        #region Constructors
+        public Utilisateur(int id, string name)
+        {
+            this._id = id;
+            this._name = name;
+        }
+
+        #endregion
+
+        #region Methods
+
+        public int getId()
+        {
+            return _id;
+        }
+
+        public string getName()
+        {
+            return _name;
+        }
+
+        public void setId(int id)
+        {
+            this._id = id;
+        }
+
+        public void setName(string name)
+        {
+            this._name = name;
+        }
+
+        #endregion
     }
 }
