@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamSpit.Model;
 
 namespace TeamSpit.Visitor
 {
     public class TextComponent : IComponent
     {
-        private string _text;
+        private Message _message;
 
-        public TextComponent(string text)
+        public TextComponent(Message message)
         {
-            _text = text;
+            _message = message;
         }
         public void Accept(IVisitor visitor)
         {
-            _text = visitor.VisitText(_text, this);
+            _message.description = visitor.VisitText(_message.description, this);
         }
     }
 }
