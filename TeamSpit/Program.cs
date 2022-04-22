@@ -3,9 +3,25 @@ using TeamSpit.Observer;
 using TeamSpit.Services;
 using TeamSpit.Singleton;
 using TeamSpit.State;
-
+using TeamSpit.Visitor;
 
 DbContext context = DbContext.GetInstance();
+
+
+IComponent component = new TextComponent("*Atention* /je vous joins ce lien/ <l>www.coucou.com<l> #3 c'est noir");
+List<IVisitor> visitors = new List<IVisitor>
+{
+    new ColorVisitor(),
+    new LinkVisitor(),
+    new StyleVisitor(),
+};
+
+foreach(var visitor in visitors)
+{
+    Guide.VisitingComponent(component, visitor);
+}
+
+
 
 
 ConversationService conversationService = new ConversationService();

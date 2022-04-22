@@ -12,5 +12,6 @@ namespace TeamSpit.Services
         public List<Message> findAll(Conversation conversation);
 
         public Message findById(int id);
+
     }
 }
