@@ -1,12 +1,13 @@
-﻿using TeamSpit.Model;
+﻿using TeamSpit.Memento;
+using TeamSpit.Model;
 using TeamSpit.Observer;
 using TeamSpit.Services;
 using TeamSpit.Singleton;
 using TeamSpit.State;
 using TeamSpit.Visitor;
 
-DbContext context = DbContext.GetInstance();
 
+DbContext context = DbContext.GetInstance();
 
 IComponent component = new TextComponent("*Atention* /je vous joins ce lien/ <l>www.coucou.com<l> #3 c'est noir");
 List<IVisitor> visitors = new List<IVisitor>
@@ -21,14 +22,13 @@ foreach(var visitor in visitors)
     Guide.VisitingComponent(component, visitor);
 }
 
-
-
-
 ConversationService conversationService = new ConversationService();
+UtilisateurService utilisateurService = new UtilisateurService();
 
 List<Conversation> conversations = conversationService.findAll();
-
 Conversation? conversation = conversations.FirstOrDefault();
+
+Utilisateur utilisateur;
 
 if (conversation != null)
 {
@@ -45,7 +45,12 @@ if (conversation != null)
 
     ((IObservable)srvMessage).detach(messageObserver);
     srvMessage.findAll(conversations.FirstOrDefault());
+
+    conversation.attach(new MementoManager());
+    conversation.addMessage(new Message(15, "test", DateTime.Now, new Utilisateur(3, "admin")));
 }
+
 var UtilisateurActuel = new UtilisateurActuel(new Present(), new Utilisateur(1, "erwan"));
 UtilisateurActuel.Deconnecte();
 UtilisateurActuel.Connecte();
+
