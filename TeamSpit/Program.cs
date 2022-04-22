@@ -3,6 +3,8 @@ using TeamSpit.Model;
 using TeamSpit.Observer;
 using TeamSpit.Services;
 using TeamSpit.Singleton;
+using TeamSpit.State;
+
 
 // Récupération de l'instance
 DbContext context = DbContext.GetInstance();
@@ -35,14 +37,7 @@ if (conversation != null)
     conversation.addMessage(new Message(15, "test", DateTime.Now, new Utilisateur(3, "admin")));
 }
 
-
-
-
-
-
-
-
-
-
-
+var UtilisateurActuel = new UtilisateurActuel(new Present(), new Utilisateur(1, "erwan"));
+UtilisateurActuel.Deconnecte();
+UtilisateurActuel.Connecte();
 

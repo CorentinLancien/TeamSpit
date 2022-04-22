@@ -52,5 +52,10 @@ namespace TeamSpit.Services
 
             };
         }
+
+        public List<Message> GetMessagesFromConversation(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
