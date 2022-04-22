@@ -2,6 +2,8 @@
 using TeamSpit.Observer;
 using TeamSpit.Services;
 using TeamSpit.Singleton;
+using TeamSpit.State;
+
 
 DbContext context = DbContext.GetInstance();
 
@@ -28,3 +30,6 @@ if (conversation != null)
     ((IObservable)srvMessage).detach(messageObserver);
     srvMessage.findAll(conversations.FirstOrDefault());
 }
+var UtilisateurActuel = new UtilisateurActuel(new Present(), new Utilisateur(1, "erwan"));
+UtilisateurActuel.Deconnecte();
+UtilisateurActuel.Connecte();
