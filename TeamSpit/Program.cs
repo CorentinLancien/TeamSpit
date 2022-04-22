@@ -9,7 +9,8 @@ using TeamSpit.Visitor;
 
 DbContext context = DbContext.GetInstance();
 
-IComponent component = new TextComponent("*Atention* /je vous joins ce lien/ <l>www.coucou.com<l> #3 c'est noir");
+IComponent component = new TextComponent(new Message(1, 
+    "*Atention* /je vous joins ce lien/ <l>www.coucou.com<l> #3 c'est noir", DateTime.Now, new Utilisateur()));
 List<IVisitor> visitors = new List<IVisitor>
 {
     new ColorVisitor(),
