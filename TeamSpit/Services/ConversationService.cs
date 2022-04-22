@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +8,9 @@ using TeamSpit.Model;
 
 namespace TeamSpit.Services
 {
-    internal class ConversationService : IConversationService
+    public class ConversationService : IConversationService
     {
+
         public List<Conversation> findAll()
         {
             return new List<Conversation>()
@@ -29,7 +31,6 @@ namespace TeamSpit.Services
                 new Utilisateur(2,"erwan")
            });
         }
-
 
         public List<Message> GetMessagesFromConversation(Conversation conversation)
         {

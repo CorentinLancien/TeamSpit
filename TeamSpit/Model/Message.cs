@@ -8,20 +8,70 @@ namespace TeamSpit.Model
 {
     public class Message
     {
-        public int id { get; set; }
+        #region Properties
+        private int _id { get; set; }
 
-        public string description { get; set; }
+        private string _description { get; set; }
 
-        public DateTime dateEnvoie { get; set; }
+        private DateTime _dateEnvoie { get; set; }
 
-        public Utilisateur? Utilisateur { get; set; }
+        private Utilisateur? _utilisateur { get; set; }
 
+        #endregion
+
+        #region Constructors
         public Message(int id, string description, DateTime dateEnvoi, Utilisateur utilisateur)
         {
-            this.id = id;
-            this.description = description; 
-            this.dateEnvoie = dateEnvoi;
-            this.Utilisateur = utilisateur;
+            this._id = id;
+            this._description = description;
+            this._dateEnvoie = dateEnvoi;
+            this._utilisateur = utilisateur;
         }
+
+        #endregion
+
+        #region Setters and Getters
+
+        public int getId()
+        {
+            return this._id;
+        }
+
+        public string getDescription()
+        {
+            return this._description;
+        }
+
+        public DateTime getDateEnvoie()
+        {
+            return this._dateEnvoie;
+        }
+
+        public Utilisateur getUtilisateur()
+        {
+            return this._utilisateur;
+        }
+
+        public void setId(int id)
+        {
+            this._id = id;
+        }
+
+        public void setDescription(string description)
+        {
+            this._description = description;
+        }
+
+        public void setDateEnvoie(DateTime dateEnvoie)
+        {
+            this._dateEnvoie= dateEnvoie;
+        }
+
+        public void setUtilisateur(Utilisateur utilisateur)
+        {
+            this._utilisateur = utilisateur;
+        }
+
+        #endregion
     }
 }

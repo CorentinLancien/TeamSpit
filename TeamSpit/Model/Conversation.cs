@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamSpit.Observer;
 
 namespace TeamSpit.Model
 {
-    public class Conversation
+    public class Conversation : IObservable
     {
         #region Properties
 
@@ -17,6 +18,8 @@ namespace TeamSpit.Model
         private List<Utilisateur> _utilisateurs;
 
         private List<Message> _messages;
+
+        private List<IListener> _listeners = new List<IListener>();
 
         #endregion
 
@@ -73,14 +76,30 @@ namespace TeamSpit.Model
 
         #region Methods
 
-        public void AddMessage(Message message)
+        public void addMessage(Message message)
         {
             this._messages.Add(message);
+            this.alert();
         }
 
-        public void AddUtilisateur(Utilisateur utilisateur)
+        public void addUtilisateur(Utilisateur utilisateur)
         {
             this._utilisateurs.Add(utilisateur);
+        }
+
+        public void attach(IListener listener)
+        {
+            this._listeners.Add(listener);
+        }
+
+        public void detach(IListener listener)
+        {
+            this._listeners.Remove(listener);
+        }
+
+        public void alert()
+        {
+            this._listeners.ForEach(o => o.update(this));
         }
 
         #endregion

@@ -10,5 +10,7 @@ namespace TeamSpit.Services
     public interface IUtilisateurService
     {
         public Utilisateur findById();
+
+        public Utilisateur findByName(string name);
     }
 }

@@ -13,5 +13,21 @@ namespace TeamSpit.Services
         {
             throw new NotImplementedException();
         }
+
+        public Utilisateur findByName(string name)
+        {
+            Utilisateur utilisateur = null;
+
+            if (name == "corentin")
+            {
+                utilisateur = new Utilisateur(1, "corentin");
+            }
+            else if (name == "erwan")
+            {
+                utilisateur = new Utilisateur(2, "erwan");
+            }
+
+            return utilisateur;
+        }
     }
 }
