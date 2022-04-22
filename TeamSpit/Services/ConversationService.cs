@@ -30,5 +30,10 @@ namespace TeamSpit.Services
         {
             throw new NotImplementedException();
         }
+
+        public List<Message> GetMessagesFromConversation(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
